@@ -19,7 +19,7 @@ settings:
     # 数据库名称
     name: letter
     # 数据库连接字符串 mongo
-    url: mongodb://localhost:27017
+    url: mongodb://mongo:123456@localhost:27017
     # 用户名
     username: letter
     # 数据库密码
