@@ -1,0 +1,32 @@
+settings:
+  application:
+    # dev开发环境,prod线上环境
+    mode: dev
+    # 服务器ip，默认使用 0.0.0.0
+    host: 0.0.0.0
+    # 服务名称
+    name: go-mongo
+    # 端口号
+    port: 8000 # 服务端口号
+  logger:
+    # 日志存放路径
+    path: temp/logs
+    # 控制台日志
+    stdout: true
+    # 日志等级
+    level: all
+  database:
+    # 数据库名称
+    name: letter
+    # 数据库连接字符串 mongo
+    url: mongodb://localhost:27017
+    # 用户名
+    username: letter
+    # 数据库密码
+    password: 123456
+    # 超时
+    timeout: 30
+    # 设置线程池
+    max-pool-size: 100
+    # 最小线程数
+    min-pool-size: 5
