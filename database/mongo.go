@@ -3,7 +3,7 @@ package database
 import (
 	"context"
 	"github.com/zhaoyunxing92/letter/conf"
-	"github.com/zhaoyunxing92/letter/public"
+	"github.com/zhaoyunxing92/letter/global"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -26,5 +26,5 @@ func Setup() {
 		log.Fatalf("mogo ping fail: %s", err.Error())
 	}
 	//设置数据库实例
-	public.Mongo = client.Database(cfg.Name)
+	global.Mongo = client.Database(cfg.Name)
 }
