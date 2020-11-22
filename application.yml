@@ -25,7 +25,7 @@ settings:
     # 数据库密码
     password: 123456
     # 超时
-    timeout: 30
+    timeout: 5
     # 设置线程池
     max-pool-size: 100
     # 最小线程数

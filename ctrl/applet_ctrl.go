@@ -7,11 +7,13 @@ import (
 	"github.com/zhaoyunxing92/letter/domain"
 	"github.com/zhaoyunxing92/letter/global"
 	"github.com/zhaoyunxing92/letter/param"
+	"github.com/zhaoyunxing92/dingtalk/sdk"
 )
 
 //创建应用
 func CreateApplet(ctx *gin.Context) {
 	var args param.NewApplet
+	var err error
 	//参数验证
 	if err := args.Validate(ctx); err != nil {
 		global.ResponseError(ctx, 400, err)
@@ -19,11 +21,17 @@ func CreateApplet(ctx *gin.Context) {
 		return
 	}
 	//数据保存
-	applet := new(domain.Applet)
-	applet.AgentId = args.AgentId
-	applet.AppSecret = args.AppSecret
-	applet.AppKey = args.AppKey
-	applet.CorpId = args.CorpId
+	applet := domain.NewApplet(args.AgentId, args.CorpId, args.AppKey, args.AppSecret)
+	//钉钉参数验证
+	var dingTalk *sdk.DingTalk
+	if dingTalk, err = sdk.NewDingTalk(args.AgentId, args.AppKey, args.AppSecret); err != nil {
+		global.ResponseError(ctx, 400, err)
+		ctx.Abort()
+		return
+	}
+
+	dingTalk.GetToken()
+	//return
 
 	if err := applet.Save(); err != nil {
 		global.ResponseError(ctx, 400, err)
@@ -64,7 +72,7 @@ func UpdateApplet(ctx *gin.Context) {
 		ctx.Abort()
 		return
 	}
-	
+
 	//参数验证
 	var args param.UpdateApplet
 	if err := args.Validate(ctx); err != nil {

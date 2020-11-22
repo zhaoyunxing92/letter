@@ -14,14 +14,15 @@ import (
 // Setup:初始化数据库
 func Setup() {
 	cfg := conf.MongodbConfig
+	ctx := context.Background()
 
 	clientOptions := options.Client().ApplyURI(cfg.Url).SetMaxPoolSize(cfg.MaxPoolSize).SetMinPoolSize(cfg.MinPoolSize).SetConnectTimeout(time.Duration(cfg.Timeout) * time.Second)
-	client, err := mongo.Connect(context.TODO(), clientOptions)
+	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
 		log.Fatalf("connect mogo fail: %s", err.Error())
 	}
 	//检查是否ping通
-	err = client.Ping(context.TODO(), readpref.Primary())
+	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		log.Fatalf("mogo ping fail: %s", err.Error())
 	}
