@@ -3,6 +3,7 @@ package domain
 import (
 	"context"
 	"github.com/zhaoyunxing92/letter/global"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"time"
 )
@@ -32,12 +33,20 @@ func (applet *Applet) collection() *mongo.Collection {
 
 //保存应用
 func (applet *Applet) Save() error {
-	timestamp := time.Now().Unix()
-	applet.CreateIn = timestamp
-	applet.UpdateIn = timestamp
-	applet.Version = 1
 	coll := applet.collection()
+	applet.CreateIn = time.Now().Unix()
+	applet.Version = 1
 	if _, err := coll.InsertOne(context.Background(), applet); err != nil {
+		return err
+	}
+	return nil
+}
+
+//根据id查询
+func (applet *Applet) FindById() error {
+	coll := applet.collection()
+
+	if err := coll.FindOne(context.Background(), bson.M{"_id": applet.AppKey}).Decode(&applet); err != nil {
 		return err
 	}
 	return nil

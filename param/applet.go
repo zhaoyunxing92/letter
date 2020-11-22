@@ -13,7 +13,19 @@ type NewApplet struct {
 	AppSecret string `json:"appSecret" form:"appSecret" validate:"required"` //应用秘钥
 }
 
+//更新应用
+type UpdateApplet struct {
+	CorpId    string `json:"corpId" form:"corpId" omitempty:"required"`      //企业id
+	AgentId   string `json:"agentId" form:"agentId" omitempty:"required"`    //应用id
+	AppSecret string `json:"appSecret" form:"appSecret" validate:"required"` //应用秘钥
+}
+
 //参数验证
 func (args *NewApplet) Validate(ctx *gin.Context) error {
+	return global.DefaultGetValidParams(ctx, args)
+}
+
+// 更新参数验证
+func (args *UpdateApplet) Validate(ctx *gin.Context) error {
 	return global.DefaultGetValidParams(ctx, args)
 }
