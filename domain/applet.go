@@ -10,7 +10,7 @@ import (
 
 type Applet struct {
 	CorpId         string `json:"corpId"`            //企业id
-	AgentId        uint32 `json:"agentId"`           //应用id
+	AgentId        uint64 `json:"agentId"`           //应用id
 	AppKey         string `json:"appKey" bson:"_id"` //应用key
 	AppSecret      string `json:"appSecret"`         //应用秘钥
 	Name           string `json:"name"`              //应用名称
@@ -24,12 +24,6 @@ type Applet struct {
 	Version        uint   `json:"version"`           //数据版本
 	CreateIn       int64  `json:"createIn"`          //创建时间
 	UpdateIn       int64  `json:"updateIn"`          //创建时间
-}
-
-// 创建实例
-func NewApplet(agentId uint32, corpId, appKey, appSecret string) *Applet {
-
-	return &Applet{CorpId: corpId, AgentId: agentId, AppKey: appKey, AppSecret: appSecret}
 }
 
 //获取集合

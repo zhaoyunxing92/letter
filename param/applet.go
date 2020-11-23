@@ -8,7 +8,7 @@ import (
 //创建应用参数
 type NewApplet struct {
 	CorpId    string `json:"corpId" form:"corpId" validate:"required"`       //企业id
-	AgentId   uint32 `json:"agentId" form:"agentId" validate:"required"`     //应用id
+	AgentId   uint64 `json:"agentId" form:"agentId" validate:"required"`     //应用id
 	AppKey    string `json:"appKey" form:"appKey" validate:"required"`       //应用key
 	AppSecret string `json:"appSecret" form:"appSecret" validate:"required"` //应用秘钥
 }

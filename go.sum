@@ -267,6 +267,16 @@ github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhe
 github.com/xdg/stringprep v0.0.0-20180714160509-73f8eece6fdc h1:n+nNi93yXLkJvKwXNP9d55HC7lGK4H/SRcwB5IaUZLo=
 github.com/xdg/stringprep v0.0.0-20180714160509-73f8eece6fdc/go.mod h1:Jhud4/sHMO4oL310DaZAKk9ZaJ08SJfe+sJh0HrGL1Y=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123062809-5d59f8e66a4b h1:9oQ2nTT07xJdZZIhaXHnTeo51YKs3viFiTk1JXIECKI=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123062809-5d59f8e66a4b/go.mod h1:oAlGisxM/Pg1PnHt6RwqFKSzp7z9g2gAXLASau5Fwnk=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123070521-59254fc3c5d7 h1:Oj+WG0jKbCqQN8/Er7pIJQsJcMkAAW0QO7FbmNR5/Vc=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123070521-59254fc3c5d7/go.mod h1:oAlGisxM/Pg1PnHt6RwqFKSzp7z9g2gAXLASau5Fwnk=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123105151-b7891f6763e6 h1:0Daw1URSmGXrkpKacvnS5Zfp6YEmoog4ZNSx7yDZ8KU=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123105151-b7891f6763e6/go.mod h1:oAlGisxM/Pg1PnHt6RwqFKSzp7z9g2gAXLASau5Fwnk=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123110516-e8b36d055a57 h1:rz2F2U/KJGAiDTZ6eaGjp+drbkkKF0YTaj3t3DOAOic=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123110516-e8b36d055a57/go.mod h1:oAlGisxM/Pg1PnHt6RwqFKSzp7z9g2gAXLASau5Fwnk=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123111026-805c4ec63ca8 h1:dj9iNoUb/SJK8gh3vqWHGlgQEJXh/LNKSRX/I0Chgb4=
+github.com/zhaoyunxing92/dingtalk v0.0.0-20201123111026-805c4ec63ca8/go.mod h1:oAlGisxM/Pg1PnHt6RwqFKSzp7z9g2gAXLASau5Fwnk=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 go.mongodb.org/mongo-driver v1.4.3 h1:moga+uhicpVshTyaqY9L23E6QqwcHRUv1sqyOsoyOO8=
 go.mongodb.org/mongo-driver v1.4.3/go.mod h1:WcMNYLx/IlOxLe6JRJiv2uXuCz6zBLndR4SoGjYphSc=
