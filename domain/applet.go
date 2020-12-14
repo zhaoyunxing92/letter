@@ -9,6 +9,7 @@ import (
 )
 
 type Applet struct {
+	base
 	CorpId         string `json:"corpId"`            //企业id
 	AgentId        uint64 `json:"agentId"`           //应用id
 	AppKey         string `json:"appKey" bson:"_id"` //应用key
@@ -20,10 +21,7 @@ type Applet struct {
 	OmpLink        string `json:"ompLink"`           //应用的OA后台管理主页
 	HomepageLink   string `json:"homepageLink"`      //应用的移动端主页。
 	PcHomepageLink string `json:"pcHomepageLink"`    //应用的PC端主页。
-	Status         uint8  `json:"status"`            //应用状态
-	Version        uint   `json:"version"`           //数据版本
-	CreateIn       int64  `json:"createIn"`          //创建时间
-	UpdateIn       int64  `json:"updateIn"`          //创建时间
+
 }
 
 //获取集合
