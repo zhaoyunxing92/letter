@@ -14,7 +14,7 @@ import (
 // Setup:初始化数据库
 func Setup() {
 	cfg := conf.MongodbConfig
-	ctx := context.Background()
+	ctx, _ := context.WithTimeout(context.Background(), 5*time.Second)
 
 	clientOptions := options.Client().ApplyURI(cfg.Url).SetMaxPoolSize(cfg.MaxPoolSize).SetMinPoolSize(cfg.MinPoolSize).SetConnectTimeout(time.Duration(cfg.Timeout) * time.Second)
 	client, err := mongo.Connect(ctx, clientOptions)

@@ -10,7 +10,7 @@ import (
 	"github.com/zhaoyunxing92/letter/param"
 )
 
-//创建应用
+//CreateApplet:创建应用
 func CreateApplet(ctx *gin.Context) {
 	var (
 		args param.NewApplet
@@ -37,7 +37,7 @@ func CreateApplet(ctx *gin.Context) {
 	applet.CorpId = args.CorpId
 	applet.AppKey = args.AppKey
 	applet.AppSecret = args.AppKey
-	applet.Name=app.Name
+	applet.Name = app.Name
 	applet.Desc = app.Desc
 	applet.Icon = app.Icon
 	applet.Self = app.Self
@@ -54,7 +54,7 @@ func CreateApplet(ctx *gin.Context) {
 	global.ResponseSuccess(ctx, applet)
 }
 
-//根据id获取应用
+//GetApplet:根据id获取应用
 func GetApplet(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
@@ -77,8 +77,39 @@ func GetApplet(ctx *gin.Context) {
 	global.ResponseSuccess(ctx, applet)
 }
 
-//根据id获取应用
+//UpdateApplet:根据id获取应用
 func UpdateApplet(ctx *gin.Context) {
+	id := ctx.Param("id")
+	if id == "" {
+		global.ResponseError(ctx, 400, errors.New("id不能为空"))
+		ctx.Abort()
+		return
+	}
+
+	//参数验证
+	var args param.UpdateApplet
+	if err := args.Validate(ctx); err != nil {
+		global.ResponseError(ctx, 400, err)
+		ctx.Abort()
+		return
+	}
+
+	applet := new(domain.Applet)
+	applet.AppKey = id
+
+	if err := applet.FindById(); err != nil {
+		if "mongo: no documents in result" == err.Error() {
+			err = errors.New(fmt.Sprintf("id:[%s]不存在", id))
+		}
+		global.ResponseError(ctx, 400, err)
+		ctx.Abort()
+		return
+	}
+	global.ResponseSuccess(ctx, applet)
+}
+
+//DeleteApplet:根据id获取应用
+func DeleteApplet(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
 		global.ResponseError(ctx, 400, errors.New("id不能为空"))

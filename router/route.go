@@ -15,6 +15,7 @@ func InitRouter(middlewares ...gin.HandlerFunc) *gin.Engine {
 			"msg": "pong",
 		})
 	})
+
 	v1 := router.Group("/v1")
 	//应用创建模块
 	applet := v1.Group("/applet")
@@ -22,6 +23,7 @@ func InitRouter(middlewares ...gin.HandlerFunc) *gin.Engine {
 		applet.POST("/", ctrl.CreateApplet)
 		applet.GET("/:id", ctrl.GetApplet)
 		applet.PUT("/:id", ctrl.UpdateApplet)
+		applet.DELETE("/:id", ctrl.DeleteApplet)
 	}
 	//模板模块
 	template := v1.Group("/template")
